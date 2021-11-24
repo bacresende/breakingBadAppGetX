@@ -1,9 +1,9 @@
-import 'package:flutter_breaking/data/models/characters.dart';
-import 'package:flutter_breaking/data/models/quote.dart';
-import 'package:flutter_breaking/data/web_services/characters_web_services.dart';
+import 'package:flutter_breaking/app/data/model/characters.dart';
+import 'package:flutter_breaking/app/data/model/quote.dart';
+import 'package:flutter_breaking/app/data/provider/characters_provider.dart';
 
 class CharactersRepository {
-  final CharacterWebServices webServices;
+  final CharactersProvider webServices;
 
   CharactersRepository(this.webServices);
 

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_breaking/constants/strings.dart';
+import 'package:flutter_breaking/utils/strings.dart';
 
-class CharacterWebServices {
+class CharactersProvider {
 
-  late Dio dio;
+  Dio dio;
 
-  CharacterWebServices() {
+  CharactersProvider() {
     BaseOptions options = BaseOptions(
         baseUrl: baseUrl,
         receiveDataWhenStatusError: true,

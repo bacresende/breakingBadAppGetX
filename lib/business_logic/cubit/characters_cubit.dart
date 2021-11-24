@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_breaking/data/models/characters.dart';
-import 'package:flutter_breaking/data/models/quote.dart';
-import 'package:flutter_breaking/data/repository/characters_repository.dart';
+import 'package:flutter_breaking/app/data/model/characters.dart';
+import 'package:flutter_breaking/app/data/model/quote.dart';
+import 'package:flutter_breaking/app/data/repository/characters_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'characters_state.dart';

@@ -4,14 +4,13 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_breaking/business_logic/cubit/characters_cubit.dart';
-import 'package:flutter_breaking/constants/my_colors.dart';
-import 'package:flutter_breaking/data/models/characters.dart';
+import 'package:flutter_breaking/utils/my_colors.dart';
+import 'package:flutter_breaking/app/data/model/characters.dart';
 
 class CharactersDetailsScreen extends StatelessWidget {
   final Character character;
 
-  const CharactersDetailsScreen({Key? key, required this.character})
-      : super(key: key);
+  const CharactersDetailsScreen({@required this.character});
 
   @override
   Widget build(BuildContext context) {

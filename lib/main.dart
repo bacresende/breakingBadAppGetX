@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_breaking/app_router.dart';
+import 'package:flutter_breaking/app/routes/app_pages.dart';
+import 'package:flutter_breaking/app/routes/routes.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(BreakingBadApp(
-      appRouter: AppRouter(),
-    ));
+void main() => runApp(BreakingBadApp());
 
 class BreakingBadApp extends StatelessWidget {
-  final AppRouter appRouter;
-
-  const BreakingBadApp({Key? key, required this.appRouter}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      title: 'Breaking Bad App',
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: appRouter.generateRoute,
+      initialRoute: Routes.CHARACTERS_SCREEN,
+      getPages: AppPages.routes,
     );
   }
 }

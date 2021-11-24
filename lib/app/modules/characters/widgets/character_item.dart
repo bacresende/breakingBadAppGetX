@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_breaking/constants/my_colors.dart';
-import 'package:flutter_breaking/constants/strings.dart';
-import 'package:flutter_breaking/data/models/characters.dart';
+import 'package:flutter_breaking/app/modules/characters/characters_controller.dart';
+import 'package:flutter_breaking/utils/my_colors.dart';
+import 'package:flutter_breaking/app/data/model/characters.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-class CharacterItem extends StatelessWidget {
+class CharacterItem extends GetView<CharactersController> {
   final Character character;
 
   CharacterItem(this.character);
@@ -19,7 +20,7 @@ class CharacterItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: InkWell(
-        onTap: () => Navigator.pushNamed(context, characterDetailsScreen , arguments: character),
+        //onTap: () => Navigator.pushNamed(context, characterDetailsScreen , arguments: character),
         child: GridTile(
           child: Hero(
             tag: character.charId,
