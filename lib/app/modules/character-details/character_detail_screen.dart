@@ -3,23 +3,37 @@ import 'dart:math';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_breaking/app/modules/character-details/character_detail_controller.dart';
 import 'package:flutter_breaking/business_logic/cubit/characters_cubit.dart';
 import 'package:flutter_breaking/utils/my_colors.dart';
-import 'package:flutter_breaking/app/data/model/characters.dart';
+import 'package:get/get.dart';
 
-class CharactersDetailsScreen extends StatelessWidget {
-  final Character character;
-
-  const CharactersDetailsScreen({@required this.character});
-
+class CharacterDetailScreen extends GetView<CharacterDetailController> {
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<CharactersCubit>(context).getQuotes(character.name);
     return Scaffold(
       backgroundColor: MyColors.dark,
       body: CustomScrollView(
         slivers: [
-          buildSliverAppBar(),
+          SliverAppBar(
+            expandedHeight: 600,
+            pinned: true,
+            stretch: true,
+            backgroundColor: MyColors.dark_100,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                controller.character.nickName,
+                style: TextStyle(color: MyColors.white),
+              ),
+              background: Hero(
+                tag: controller.character.charId,
+                child: Image.network(
+                  controller.character.image,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
           SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -30,32 +44,38 @@ class CharactersDetailsScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      characterInfo('Job : ', character.jobs.join(' / ')),
-                      buildDivider(315),
                       characterInfo(
-                          'Appeared in : ', character.categoryForTwoSeries),
+                          'Job : ', controller.character.jobs.join(' / ')),
+                      buildDivider(315),
+                      characterInfo('Appeared in : ',
+                          controller.character.categoryForTwoSeries),
                       buildDivider(250),
-                      characterInfo('Seasons : ', character.appearanceOfSeasons.join(' / ')),
+                      characterInfo('Seasons : ',
+                          controller.character.appearanceOfSeasons.join(' / ')),
                       buildDivider(280),
-                      characterInfo('Status : ', character.statusIfDeadOrAlive),
+                      characterInfo('Status : ',
+                          controller.character.statusIfDeadOrAlive),
                       buildDivider(300),
-                      character.betterCallSaulAppearance.isEmpty
+                      controller.character.betterCallSaulAppearance.isEmpty
                           ? Container()
-                          : characterInfo('Better Call Saul Seasons : ',
-                              character.betterCallSaulAppearance.join(" / ")),
-                      character.betterCallSaulAppearance.isEmpty
+                          : characterInfo(
+                              'Better Call Saul Seasons : ',
+                              controller.character.betterCallSaulAppearance
+                                  .join(" / ")),
+                      controller.character.betterCallSaulAppearance.isEmpty
                           ? Container()
                           : buildDivider(150),
-                      characterInfo('Actor/Actress : ', character.acotrName),
+                      characterInfo(
+                          'Actor/Actress : ', controller.character.acotrName),
                       buildDivider(235),
                       SizedBox(
                         height: 20,
                       ),
-                      BlocBuilder<CharactersCubit, CharactersState>(
+                      /*BlocBuilder<CharactersCubit, CharactersState>(
                         builder: (context, state) {
                           return checkIfQuotesAreLoaded(state);
                         },
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
@@ -66,28 +86,6 @@ class CharactersDetailsScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  buildSliverAppBar() {
-    return SliverAppBar(
-      expandedHeight: 600,
-      pinned: true,
-      stretch: true,
-      backgroundColor: MyColors.dark_100,
-      flexibleSpace: FlexibleSpaceBar(
-        title: Text(
-          character.nickName,
-          style: TextStyle(color: MyColors.white),
-        ),
-        background: Hero(
-          tag: character.charId,
-          child: Image.network(
-            character.image,
-            fit: BoxFit.cover,
-          ),
-        ),
       ),
     );
   }

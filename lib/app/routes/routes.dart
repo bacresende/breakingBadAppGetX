@@ -1,4 +1,4 @@
 abstract class Routes {
   static const CHARACTERS_SCREEN = '/';
-  static const CHARACTER_DETAILS_SCREEN = '/character_details';
+  static const CHARACTER_DETAIL_SCREEN = '/character_details';
 }

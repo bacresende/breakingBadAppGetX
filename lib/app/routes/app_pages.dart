@@ -1,8 +1,9 @@
+import 'package:flutter_breaking/app/modules/character-details/character_detail_binding.dart';
 import 'package:flutter_breaking/app/modules/characters/characters_binding.dart';
 import 'package:flutter_breaking/app/modules/characters/characters_screen.dart';
 import 'package:flutter_breaking/app/routes/routes.dart';
 import 'package:flutter_breaking/app/data/model/characters.dart';
-import 'package:flutter_breaking/presentation/screens/characters_details_screen.dart';
+import 'package:flutter_breaking/app/modules/character-details/character_detail_screen.dart';
 import 'package:get/get.dart';
 
 class AppPages{
@@ -13,9 +14,9 @@ class AppPages{
       binding: CharactersBinding()
     ),
     GetPage(
-      name: Routes.CHARACTER_DETAILS_SCREEN, 
-      page: ()=> CharactersDetailsScreen(character: new Character()), //temporário
-      binding: null
+      name: Routes.CHARACTER_DETAIL_SCREEN, 
+      page: ()=> CharacterDetailScreen(), 
+      binding: CharacterDetailBinding()
     )
   ];
 }
