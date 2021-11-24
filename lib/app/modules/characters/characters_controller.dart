@@ -32,6 +32,7 @@ class CharactersController extends GetxController {
 
   Future<void> setCharacters() async {
     this.allCharacters.value = await this.repository.getAllCharacters();
+
   }
 
   RxList<Character> get listCharactersFilter {
@@ -55,11 +56,11 @@ class CharactersController extends GetxController {
 
   void clearSearch() {
     searchTextController.clear();
+    this.filter = '';
+    
   }
 
   void startSearch() {
-    ModalRoute.of(Get.context)
-        .addLocalHistoryEntry(LocalHistoryEntry(onRemove: stopSearching));
 
     isSearching = true;
   }

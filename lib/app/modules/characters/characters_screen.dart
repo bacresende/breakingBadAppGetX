@@ -17,6 +17,9 @@ class CharactersScreen extends GetView<CharactersController> {
         leading: Obx(() => controller.isSearching
             ? BackButton(
                 color: MyColors.white,
+                onPressed: (){
+                  controller.stopSearching();
+                },
               )
             : Container()),
         title: Obx(() => controller.isSearching
@@ -30,6 +33,7 @@ class CharactersScreen extends GetView<CharactersController> {
                 ),
                 style: TextStyle(color: MyColors.white, fontSize: 18),
                 onChanged: controller.setFilter,
+                
               )
             : Text(
                 'Characters',
@@ -40,7 +44,7 @@ class CharactersScreen extends GetView<CharactersController> {
               ? IconButton(
                   onPressed: () {
                     controller.clearSearch();
-                    Get.back();
+                    
                   },
                   icon: Icon(Icons.clear, color: MyColors.white),
                 )
