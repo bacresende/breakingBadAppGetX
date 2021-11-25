@@ -24,14 +24,13 @@ class CharactersController extends GetxController {
 
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
     repository = CharactersRepository(CharactersProvider());
     await setCharacters();
   }
 
   Future<void> setCharacters() async {
-    this.allCharacters.value = await this.repository.getAllCharacters();
+    this.allCharacters.addAll(await this.repository.getAllCharacters());
 
   }
 

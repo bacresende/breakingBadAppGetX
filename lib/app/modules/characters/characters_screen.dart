@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_breaking/app/modules/characters/characters_controller.dart';
-import 'package:flutter_breaking/business_logic/cubit/characters_cubit.dart';
 import 'package:flutter_breaking/utils/my_colors.dart';
 import 'package:flutter_breaking/app/data/model/characters.dart';
 import 'package:flutter_breaking/app/modules/characters/widgets/character_item.dart';
