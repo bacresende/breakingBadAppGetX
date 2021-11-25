@@ -11,6 +11,7 @@ class CharactersScreen extends GetView<CharactersController> {
     return Scaffold(
       backgroundColor: MyColors.dark,
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: MyColors.dark_100,
         leading: Obx(() => controller.isSearching
             ? BackButton(
