@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_breaking/app/data/model/characters.dart';
 import 'package:flutter_breaking/app/data/repository/characters_repository.dart';
-import 'package:flutter_breaking/app/data/provider/characters_provider.dart';
 import 'package:get/get.dart';
 
 class CharactersController extends GetxController {
@@ -25,7 +24,7 @@ class CharactersController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    repository = CharactersRepository(CharactersProvider());
+    repository = Get.find();
     await setCharacters();
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter_breaking/app/data/model/characters.dart';
-import 'package:flutter_breaking/app/data/provider/characters_provider.dart';
 import 'package:flutter_breaking/app/data/repository/characters_repository.dart';
 import 'package:flutter_breaking/app/data/model/quote.dart';
 import 'package:get/get.dart';
@@ -13,7 +12,7 @@ class CharacterDetailController extends GetxController {
     void onInit() async {
       super.onInit();
 
-      repository = CharactersRepository(CharactersProvider());
+      repository = Get.find();
 
       character = Get.arguments as Character;
 
