@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 class ManagerBinding extends Bindings{
   @override
   void dependencies() {
-    print('entrou no manager binding');
     Get.lazyPut(() => CharactersRepository(CharactersProvider()));
   }
 }
