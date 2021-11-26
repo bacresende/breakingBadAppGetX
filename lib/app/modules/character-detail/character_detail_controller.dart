@@ -8,8 +8,14 @@ class CharacterDetailController extends GetxController {
   Character character;
   CharactersRepository repository;
   RxList<Quote> quotes = <Quote>[].obs;
+  RxBool _isLoading = true.obs;
+
+  bool get isLoading => _isLoading.value;
+
+  set isLoading(bool value)=> _isLoading.value = value;
   @override
     void onInit() async {
+      
       super.onInit();
 
       repository = Get.find();
@@ -22,6 +28,12 @@ class CharacterDetailController extends GetxController {
 
     Future<void> setQuotes() async {
       this.quotes.addAll(await this.repository.getCharacterQuotes(this.character.name));
+
+        if(this.quotes.isEmpty){
+          isLoading = false;
+        }else{
+          isLoading = true;
+        }
     }
 
 }

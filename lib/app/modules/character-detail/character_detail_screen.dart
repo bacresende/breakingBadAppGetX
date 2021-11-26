@@ -101,12 +101,12 @@ class CharacterDetailScreen extends GetView<CharacterDetailController> {
                             ),
                           );
                         } else {
-                          return Center(
+                          return controller.isLoading ? Center(
                             child: CircularProgressIndicator(
                               valueColor:
                                   AlwaysStoppedAnimation<Color>(MyColors.white),
                             ),
-                          );
+                          ): Container();
                         }
                       }),
                     ],
