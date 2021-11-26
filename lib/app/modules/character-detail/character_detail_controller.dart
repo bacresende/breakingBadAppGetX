@@ -29,11 +29,8 @@ class CharacterDetailController extends GetxController {
     Future<void> setQuotes() async {
       this.quotes.addAll(await this.repository.getCharacterQuotes(this.character.name));
 
-        if(this.quotes.isEmpty){
-          isLoading = false;
-        }else{
-          isLoading = true;
-        }
+        isLoading = false;
+        
     }
 
 }
