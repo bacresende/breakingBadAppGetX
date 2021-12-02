@@ -1,12 +1,13 @@
 import 'package:flutter_breaking/app/data/model/characters.dart';
 import 'package:flutter_breaking/app/data/repository/characters_repository.dart';
+import 'package:flutter_breaking/app/data/provider/characters_provider.dart';
 import 'package:flutter_breaking/app/data/model/quote.dart';
 import 'package:get/get.dart';
 
 class CharacterDetailController extends GetxController {
 
-  Character character;
-  CharactersRepository repository;
+  Character character = new Character();
+  CharactersRepository repository = new CharactersRepository(new CharactersProvider());
   RxList<Quote> quotes = <Quote>[].obs;
   RxBool _isLoading = true.obs;
 

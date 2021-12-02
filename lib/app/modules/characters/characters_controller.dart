@@ -1,11 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_breaking/app/data/model/characters.dart';
 import 'package:flutter_breaking/app/data/repository/characters_repository.dart';
+import 'package:flutter_breaking/app/data/provider/characters_provider.dart';
 import 'package:get/get.dart';
 
 class CharactersController extends GetxController {
   RxList<Character> allCharacters = <Character>[].obs;
-  CharactersRepository repository;
+  CharactersRepository repository = new CharactersRepository(new CharactersProvider());
 
   RxBool _isSearching = false.obs;
 

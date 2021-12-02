@@ -5,20 +5,20 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.11.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  animated_text_kit: ^4.2.1
+  carousel_slider: ^2.2.1
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.0
+  eva_icons_flutter: ^2.0.1
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  flutter_bloc:
+  flutter_bloc: null
+  get: ^4.5.1
   rxdart: ^0.24.1
-  dio: ^4.0.0
-  get: ^3.4.5
-  eva_icons_flutter: ^2.0.1
-  carousel_slider: ^2.2.1
   timeago: ^2.0.26
-  animated_text_kit: ^4.2.1
 
 dev_dependencies:
   flutter_test:

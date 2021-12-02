@@ -1,14 +1,14 @@
 class Character {
-  int charId;
-  String name;
-  String nickName;
-  String image;
-  List<dynamic> jobs;
-  String statusIfDeadOrAlive;
-  List<dynamic> appearanceOfSeasons;
-  String acotrName;
-  String categoryForTwoSeries;
-  List<dynamic> betterCallSaulAppearance;
+  int charId = 0;
+  String name = '';
+  String nickName = '';
+  String image = '';
+  List<dynamic> jobs = [];
+  String statusIfDeadOrAlive = '';
+  List<dynamic> appearanceOfSeasons = [];
+  String acotrName = '';
+  String categoryForTwoSeries = '';
+  List<dynamic> betterCallSaulAppearance = [];
 
   Character();
 

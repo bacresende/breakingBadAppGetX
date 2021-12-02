@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_breaking/utils/my_colors.dart';
 
 class CharacterInfo extends StatelessWidget {
-  final String title;
-  final String join;
+  final String? title;
+  final String? join;
   const CharacterInfo({@required this.title, @required this.join});
 
   @override

@@ -4,7 +4,7 @@ import 'package:flutter_breaking/utils/my_colors.dart';
 class BuildDivider extends StatelessWidget {
   final double endIndent;
 
-  const BuildDivider({ @required this.endIndent });
+  const BuildDivider({ this.endIndent = 10 });
 
   @override
   Widget build(BuildContext context) {

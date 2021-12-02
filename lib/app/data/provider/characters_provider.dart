@@ -3,7 +3,7 @@ import 'package:flutter_breaking/utils/strings.dart';
 
 class CharactersProvider {
 
-  Dio dio;
+  Dio? dio;
 
   CharactersProvider() {
     BaseOptions options = BaseOptions(
@@ -18,7 +18,7 @@ class CharactersProvider {
 
   Future<List<dynamic>> getAllCharacters() async {
     try {
-      Response response = await dio.get('characters');
+      Response response = await dio!.get('characters');
       print(response.data.toString());
       return response.data;
     } catch (e) {
@@ -29,7 +29,7 @@ class CharactersProvider {
 
   Future<List<dynamic>> getCharacterQuotes(String charName) async {
     try {
-      Response response = await dio.get('quote' , queryParameters: {'author' : charName});
+      Response response = await dio!.get('quote' , queryParameters: {'author' : charName});
       print(response.data.toString());
       return response.data;
     } catch (e) {
